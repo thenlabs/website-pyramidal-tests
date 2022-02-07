@@ -1,6 +1,7 @@
 {{ "```php
 <?php
-// tests/test-it-is-created-a-product.php
+// Create the PHPUnit's test cases employing nested calls
+// to key functions.
 
 testCase('it is created a product', function () {
     setUp(function () {
@@ -15,6 +16,7 @@ testCase('it is created a product', function () {
         $this->assertCount(0, $this->product->getCategories());
     });
 
+    // Nested cases inherit from parents. The output keep margins.
     testCase('adds a category to the product', function () {
         setUp(function () {
             $this->category = $this->createMock(Category::class);
@@ -22,7 +24,9 @@ testCase('it is created a product', function () {
         });
 
         test('the product contains the category', function () {
-            $this->assertContains($this->category, $this->product->getCategories());
+            $this->assertContains(
+                $this->category, $this->product->getCategories()
+            );
         });
     });
 });

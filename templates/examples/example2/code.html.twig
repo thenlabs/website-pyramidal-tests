@@ -1,0 +1,37 @@
+{{ "```php
+<?php
+// tests/test-untitled.php
+
+// Tests can be created without specifying a description and
+// without a root case.
+test(function () {
+    $this->assertTrue(true);
+});
+
+// Macros permit reuse common members in several test cases.
+macro('subject conditions', function () {
+    test('the subject is a number', function () {
+        $this->assertIsNumeric($this->subject);
+    });
+
+    test('the subject is less than 10', function () {
+        $this->assertLessThan(10, $this->subject);
+    });
+});
+
+testCase('when subject is 9', function () {
+    setUp(function () {
+        $this->subject = 9;
+    });
+
+    useMacro('subject conditions'); // applying the macro
+});
+
+testCase('when subject is \"9\"', function () {
+    setUp(function () {
+        $this->subject = '9';
+    });
+
+    useMacro('subject conditions'); // applying the macro
+});
+```"|markdown }}
