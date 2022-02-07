@@ -1,0 +1,3 @@
+[submodule "pyramidal-tests"]
+	path = pyramidal-tests
+	url = https://github.com/thenlabs/pyramidal-tests

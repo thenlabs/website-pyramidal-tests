@@ -1,0 +1,36 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+  <main class="container mb-5">
+    <section>
+      <div class="row">
+        <div class="col py-5 text-center">
+          <h1>PyramidalTests</h1>
+          <p class="lead">Extends the PHPUnit possibilities to the BDD field.</p>
+          <p class="mt-4"><a href="{{ path('doc_index') }}" class="btn btn-outline-primary btn-lg">Get Started</a></p>
+        </div>
+      </div>
+
+      <div class="wrapper-example hljs row text-start rounded">
+        <div class="col p-0">
+          <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              {% for id, example in examples %}
+                <div class="carousel-item {% if id == 0 %}active{% endif %}">
+                  <div class="row">
+                    <div class="example-code col-auto col-sm-12 col-md-6 border-2 border-secondary">
+                      {% include example.code %}
+                    </div>
+                    <div class="example-result col-auto col-sm-12 col-md-6 py-3">
+                      {% include example.result %}
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+{% endblock %}

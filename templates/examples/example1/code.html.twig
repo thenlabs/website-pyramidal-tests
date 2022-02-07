@@ -1,0 +1,29 @@
+{{ "```php
+<?php
+// tests/test-it-is-created-a-product.php
+
+testCase('it is created a product', function () {
+    setUp(function () {
+        $this->product = new Product();
+    });
+
+    test('the product has not name', function () {
+        $this->assertEmpty($this->product->getName());
+    });
+
+    test('not contains categories', function () {
+        $this->assertCount(0, $this->product->getCategories());
+    });
+
+    testCase('adds a category to the product', function () {
+        setUp(function () {
+            $this->category = $this->createMock(Category::class);
+            $this->product->addCategory($this->category);
+        });
+
+        test('the product contains the category', function () {
+            $this->assertContains($this->category, $this->product->getCategories());
+        });
+    });
+});
+```"|markdown }}
