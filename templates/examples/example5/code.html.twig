@@ -1,0 +1,31 @@
+{{ "```php
+<?php
+// tests/test-example-decorators.php
+
+// Specify the test case class.
+setTestCaseClass('Tests\\Example\\TestCase');
+
+// A decorated test inspired by Pest's higher order tests.
+test('the homepage is ok')
+    ->get('/')
+    ->assertStatus(200)
+;
+
+// A decorated test case, useful for end-to-end testing.
+testCase('do several things')
+    // this methods are static and belong to the test case class.
+    ->doOneThing()
+    ->doAnotherThing()
+    ->doOneMoreThing()
+
+    ->test('an expected result', function () { /* ... */ })
+    ->test('another expected result', function () { /* ... */ })
+
+    ->testCase('do several things more')
+        ->test('an expected result', function () { /* ... */ })
+    ->end() // return the level.
+
+    ->test('another expected result more', function () { /* ... */ })
+;
+
+```"|markdown }}

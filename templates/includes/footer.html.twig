@@ -1,0 +1,76 @@
+{% set sponsors = {
+  gold: {},
+  silver: {},
+  bronze: {},
+} %}
+
+{% if sponsors.gold is not empty or
+      sponsors.silver is not empty or
+      sponsors.bronze is not empty
+%}
+  {% set thereAreSponsors = true %}
+{% else %}
+  {% set thereAreSponsors = false %}
+{% endif %}
+
+<footer class="mt-auto text-center pt-5">
+  <div class="container-fluid">
+
+    {# <div class="row mt-5 py-5">
+      <div class="col">
+        <div class="row pb-4">
+          <div class="col">
+            <h2>{{ 'sponsors'|trans|capitalize }}</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="container">
+              {% if sponsors.gold is not empty %}
+                <div class="row pb-3 justify-content-center">
+                  {% for sponsor in sponsors.gold %}
+                    <div class="col-4">
+                      <a href="{{ sponsor.website }}" target="_blank">
+                        <img class="w-100" src="{{ sponsor.logo }}" alt="{{ sponsor.title }}">
+                      </a>
+                    </div>
+                  {% endfor %}
+                </div>
+              {% endif %}
+
+              {% if sponsors.silver is not empty %}
+                <div class="row pb-3 justify-content-center">
+                  {% for sponsor in sponsors.silver %}
+                    <div class="col-2">
+                      <a href="{{ sponsor.website }}" target="_blank">
+                        <img class="w-100" src="{{ sponsor.logo }}" alt="{{ sponsor.title }}">
+                      </a>
+                    </div>
+                  {% endfor %}
+                </div>
+              {% endif %}
+
+              <div class="row pb-5">
+                <div class="col">
+
+                  {% if not thereAreSponsors %}
+                    <p class="lead m-0">{{ 'message.no_sponsors'|trans|capitalize }}</p>
+                    <p class="lead user-select-none" style="font-size: 2rem;">😥</p>
+                  {% endif %}
+
+                  <a href="{{ path('contribute') }}" class="btn btn-outline-success">{{ 'button.become_a_sponsor'|trans|capitalize }}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> #}
+
+    <div class="row bg-dark text-white">
+      <div class="col">
+        <p class="py-3 m-0">PyramidalTests 2022</p>
+      </div>
+    </div>
+  </div>
+</footer>

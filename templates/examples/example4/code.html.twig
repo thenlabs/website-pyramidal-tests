@@ -1,0 +1,30 @@
+{{ "```php
+<?php
+// Members can be added to test case classes in a very simple way.
+
+testCase('creating members for the test cases', function () {
+    // create a property.
+    property('myProperty');
+
+    // create a static property with a default value.
+    staticProperty('myStaticProperty', 1000);
+
+    // create a static method.
+    staticMethod('getMyStaticProperty', function (): int {
+        return static::$myStaticProperty;
+    });
+
+    // create a method.
+    method('getMyProperty', function () {
+        return $this->myProperty;
+    });
+
+    test('property is null', function () {
+        $this->assertNull($this->getMyProperty());
+    });
+
+    test('myStaticProperty is 1000', function () {
+        $this->assertSame(1000, static::getMyStaticProperty());
+    });
+});
+```"|markdown }}

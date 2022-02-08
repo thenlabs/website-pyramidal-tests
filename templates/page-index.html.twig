@@ -1,36 +1,55 @@
 {% extends "base.html.twig" %}
 
 {% block content %}
-  <main class="container mb-5">
+  <div class="container mb-5">
     <section>
       <div class="row">
         <div class="col py-5 text-center">
           <h1>PyramidalTests</h1>
-          <p class="lead">Extends the PHPUnit possibilities to the BDD field.</p>
-          <p class="mt-4"><a href="{{ path('doc_index') }}" class="btn btn-outline-primary btn-lg">Get Started</a></p>
+          <p class="lead mx-auto project-description">{{ 'pyramidal_tests_description'|trans }}</p>
+          <p class="mt-4"><a href="{{ path('doc_index') }}" class="btn btn-outline-primary btn-lg">{{ 'button.get_started'|trans|capitalize }}</a></p>
         </div>
       </div>
 
-      <div class="wrapper-example hljs row text-start">
+      <div class="row wrapper-example hljs text-start">
         <div class="col p-0">
-          <div class="carousel slide carousel-fade" data-bs-ride="carousel">
-            <div class="carousel-inner">
-              {% for id, example in examples %}
-                <div class="carousel-item {% if id == 0 %}active{% endif %}">
-                  <div class="row">
-                    <div class="example-code col-auto col-sm-12 col-md-6 border-2 border-secondary">
-                      {% include example.code %}
+
+          <div class="row">
+            <div class="col">
+              <div class="carousel slide carousel-fade" id="carousel" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  {% for id, example in examples %}
+                    <div class="carousel-item {% if id == 0 %}active{% endif %}">
+                      <div class="row">
+                        <div class="example-code col-auto col-sm-12 col-md-6 border-2 border-secondary">
+                          {% include example.code %}
+                        </div>
+                        <div class="example-result col-auto col-sm-12 col-md-6 py-3">
+                          {% include example.result %}
+                        </div>
+                      </div>
                     </div>
-                    <div class="example-result col-auto col-sm-12 col-md-6 py-3">
-                      {% include example.result %}
-                    </div>
-                  </div>
+                  {% endfor %}
                 </div>
-              {% endfor %}
+              </div>
             </div>
           </div>
+
+          <div class="row">
+            <div class="col-6 border-end border-2 border-secondary">
+              <button class="btn shadow-none float-end" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              </button>
+            </div>
+            <div class="col-6 border-2 border-secondary">
+              <button class="btn shadow-none float-start" type="button" data-bs-target="#carousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              </button>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
-  </main>
+  </div>
 {% endblock %}

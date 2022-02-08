@@ -39,15 +39,23 @@ class MainController extends AbstractController
                 'code' => 'examples/example3/code.html.twig',
                 'result' => 'examples/example3/result.html.twig',
             ],
+            [
+                'code' => 'examples/example4/code.html.twig',
+                'result' => 'examples/example4/result.html.twig',
+            ],
+            [
+                'code' => 'examples/example5/code.html.twig',
+                'result' => 'examples/example5/result.html.twig',
+            ],
         ];
 
         return $this->render('page-index.html.twig', compact('examples'));
     }
 
     /**
-     * @Route("/doc", name="doc_index")
+     * @Route("/docs", name="doc_index")
      */
-    public function docIndex(): Response
+    public function docsIndex(): Response
     {
         return $this->redirectToRoute('doc', [
             'file' => 'introduction.md',
@@ -55,9 +63,9 @@ class MainController extends AbstractController
     }
 
     /**
-     * @Route("/doc/{file<.+>}", name="doc")
+     * @Route("/docs/{file<.+>}", name="doc")
      */
-    public function doc(string $_locale, string $file, MarkdownParserInterface $parser): Response
+    public function docs(string $_locale, string $file, MarkdownParserInterface $parser): Response
     {
         $docDir = __DIR__.'/../../pyramidal-tests/doc';
         $filename = $docDir."/{$_locale}/{$file}";
@@ -132,10 +140,19 @@ class MainController extends AbstractController
 
         $content = $contentCrawler->html();
 
-        return $this->render('page-doc.html.twig', [
+        return $this->render('page-docs.html.twig', [
             'mainMenu' => $mainMenu,
             'content' => $content,
             'secondaryMenu' => $secondaryMenu,
+            'subtitle' => $contentCrawler->filter('h1')->text(),
         ]);
     }
+
+    // /**
+    //  * @Route("/contribute", name="contribute")
+    //  */
+    // public function contribute(): Response
+    // {
+    //     return $this->render('page-contribute.html.twig');
+    // }
 }

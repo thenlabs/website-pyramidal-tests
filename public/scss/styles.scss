@@ -1,36 +1,8 @@
-// Override Bootstrap's Sass default variables
-//
-// Nearly all variables in Bootstrap are written with the `!default` flag.
-// This allows you to override the default values of those variables before
-// you import Bootstrap's source Sass files.
-//
-// Overriding the default variable values is the best way to customize your
-// CSS without writing _new_ styles. For example, change you can either change
-// `$body-color` or write more CSS that override's Bootstrap's CSS like so:
-// `body { color: red; }`.
 
-
-//
-// Bring in Bootstrap
-//
-
-// Option 1
-//
-// Import all of Bootstrap's CSS
-
-// @import "bootstrap/scss/bootstrap";
-
-// Option 2
-//
-// Place variable overrides first, then import just the styles you need. Note that some stylesheets are required no matter what.
-
-// Toggle global options
-// $enable-gradients: true;
+// Global options
 $enable-shadows: true;
 
-// $offcanvas-box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
-
-// Customize some defaults
+// Customizations
 $body-color: #2b2b2b;
 $body-bg: #eee;
 $border-radius: .4rem;
@@ -79,10 +51,7 @@ $border-radius: .4rem;
 // Utilities
 @import "bootstrap/scss/utilities/api";
 
-
-//
-// Custom styles
-//
+// Custom Styles.
 
 body {
     background-color: rgba($color: #000000, $alpha: 0.08);
@@ -105,6 +74,24 @@ body {
     margin-bottom: 0 !important;
 }
 
+.main-menu {
+    ul {
+        list-style: none;
+
+        li {
+            padding-top: 10px;
+
+            a {
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.project-description {
+    max-width: 60ch;
+}
+
 @include media-breakpoint-up(md) {
     .wrapper-example .example-code {
         border-right: solid;
@@ -115,5 +102,9 @@ body {
 @include media-breakpoint-down(md) {
     .wrapper-example .example-code {
         border-bottom: solid;
+    }
+
+    .wrapper-example .carousel-controls {
+        border-top: solid;
     }
 }

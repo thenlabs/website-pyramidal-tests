@@ -1,0 +1,8 @@
+pyramidal_tests_description: 'Un framework complementario con PHPUnit enfocado en la simplicidad, la reutilización y la narración de historias.'
+button.get_started: comenzar
+sponsors: patrocinadores
+message.no_sponsors: 'Aún no tenemos ningún patrocinador.'
+button.become_a_sponsor: 'Ser un patrocinador'
+home: inicio
+docs: documentación
+contribute: contribuir
