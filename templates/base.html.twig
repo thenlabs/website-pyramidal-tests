@@ -108,7 +108,12 @@
 
     {% block javascripts %}
       <script src="{{ asset('assets/vendor/highlight/highlight.min.js') }}"></script>
-      <script>hljs.highlightAll();</script>
+      <script>
+        hljs.configure({
+          languages: ['html', 'css', 'javascript', 'php']
+        });
+        hljs.highlightAll();
+      </script>
       <script type="module" src="{{ asset('assets/js/scripts.js') }}"></script>
     {% endblock %}
   </body>

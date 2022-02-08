@@ -92,6 +92,11 @@ body {
     box-shadow: 0 -0.33rem 1rem rgba(0, 0, 0, 0.25), 0 1rem 1rem rgba(0, 0, 0, 0.25)
 }
 
+.wrapper-example .example-code,
+.wrapper-example .example-result {
+    background: #2b2b2b;
+}
+
 .wrapper-example code {
     border-radius: $border-radius !important;
 }
@@ -103,6 +108,7 @@ body {
 @include media-breakpoint-up(md) {
     .wrapper-example .example-code {
         border-right: solid;
+        height: 763px;
     }
 }
 
