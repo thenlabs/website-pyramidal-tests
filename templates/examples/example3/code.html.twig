@@ -1,0 +1,26 @@
+{{ "```php
+<?php
+// Support for 'describe-it' style for create the tests and his cases.
+
+describe('my custom title', function () { // testCase
+    beforeAll(function () { // setUpBeforeClass
+        // ...
+    });
+
+    beforeEach(function () { // setUp
+        // ...
+    });
+
+    it('title of the test', function () { // test
+        expect(true)->toBe(true); // compatible with Pest's expectations.
+    });
+
+    afterEach(function () { // tearDown
+        // ...
+    });
+
+    afterAll(function () { // tearDownAfterClass
+        // ...
+    });
+});
+```"|markdown }}

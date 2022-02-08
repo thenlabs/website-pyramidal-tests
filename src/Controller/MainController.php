@@ -35,6 +35,10 @@ class MainController extends AbstractController
                 'code' => 'examples/example2/code.html.twig',
                 'result' => 'examples/example2/result.html.twig',
             ],
+            [
+                'code' => 'examples/example3/code.html.twig',
+                'result' => 'examples/example3/result.html.twig',
+            ],
         ];
 
         return $this->render('page-index.html.twig', compact('examples'));
