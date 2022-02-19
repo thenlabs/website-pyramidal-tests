@@ -7,6 +7,7 @@
         "ext-iconv": "*",
         "doctrine/annotations": "^1.13",
         "knplabs/knp-markdown-bundle": "^1.9",
+        "symfony/apache-pack": "^1.0",
         "symfony/asset": "4.4.*",
         "symfony/console": "4.4.*",
         "symfony/css-selector": "4.4.*",
