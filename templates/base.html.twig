@@ -15,12 +15,26 @@
   'es': '<span class="fi fi-es"></span> Español',
 } %}
 
+{% set google_analytics_id = app.request.server.get('GOOGLE_ANALYTICS_ID') %}
+
 <!doctype html>
 <html lang="{{ route_parameters._locale }}" class="h-100">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}PyramidalTests | {{ subtitle }}{% endblock %}</title>
+
+    {% if google_analytics_id is not empty %}
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id={{ google_analytics_id }}"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', '{{ google_analytics_id }}');
+      </script>
+    {% endif %}
 
     {% block stylesheets %}
       <link rel="stylesheet" href="{{ asset('assets/css/monokai-gravity.css') }}">
