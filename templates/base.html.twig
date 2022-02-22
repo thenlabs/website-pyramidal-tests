@@ -2,7 +2,11 @@
 {% set route_parameters = app.request.attributes.get('_route_params') %}
 
 {% if subtitle is not defined %}
-  {% set subtitle = 'pyramidal_tests_description'|trans %}
+  {% set subtitle = 'home'|trans|capitalize %}
+{% endif %}
+
+{% if not meta_description is defined %}
+  {% set meta_description = 'pyramidal_tests_description'|trans %}
 {% endif %}
 
 {% set flags = {
@@ -17,11 +21,30 @@
 
 {% set google_analytics_id = app.request.server.get('GOOGLE_ANALYTICS_ID') %}
 
+{% if not og_type is defined %}
+  {% set og_type = 'website' %}
+{% endif %}
+
+{% if not og_title is defined %}
+  {% set og_title = 'PyramidalTests' %}
+{% endif %}
+
+{% if not og_description is defined %}
+  {% set og_description = meta_description %}
+{% endif %}
+
 <!doctype html>
 <html lang="{{ route_parameters._locale }}" class="h-100">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ meta_description }}">
+    <meta name="author" content="Andy Daniel Navarro Taño">
+    <meta property="og:type" content="{{ og_type }}">
+    <meta property="og:title" content="{{ og_title }}">
+    <meta property="og:image" content="{{ asset('og_image.png') }}">
+    <meta property="og:description" content="{{ og_description }}">
+
     <title>{% block title %}PyramidalTests | {{ subtitle }}{% endblock %}</title>
 
     {% if google_analytics_id is not empty %}
