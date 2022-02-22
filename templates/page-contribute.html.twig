@@ -2,8 +2,43 @@
 
 {% block content %}
   <div class="container pt-5">
-    <div class="row">
-      <div class="col bg-white">
+    <div class="row justify-content-center">
+      <div class="col-8 bg-white p-3">
+        {% if 'es' == route_parameters._locale %}
+          <h2>Contribución monetaria.</h2>
+
+          <p>Las contribuciones monetarias que recibamos serán siempre destinadas al desarrollo del proyecto.</p>
+          <p>Lamentablemente para nosotros, solo tenemos las siguientes opciones para recibir donaciones debido a que radicamos en Cuba y no nos es posible usar servicios como PayPal, Patreon, etc. Por tales motivos apreciaremos doblemente cada contribución.</p>
+
+          <h3>Tarjeta de crédito.</h3>
+          <ul class="list-unstyled">
+            <li><a href="https://www.tropipay.com/money-request/29191f80-93ec-11ec-8f41-f102a709d5af" target="_blank">Donación de 5 euros a través de Tropipay.</a></li>
+            <li><a href="https://www.tropipay.com/money-request/95facf90-93ec-11ec-8f41-f102a709d5af" target="_blank">Donación de 10 euros a través de Tropipay.</a></li>
+            <li><a href="https://www.tropipay.com/money-request/ce590c30-93ec-11ec-8f41-f102a709d5af" target="_blank">Donación de 25 euros a través de Tropipay.</a></li>
+            <li><a href="https://www.tropipay.com/money-request/20959950-93ed-11ec-8f41-f102a709d5af" target="_blank">Donación de 50 euros a través de Tropipay.</a></li>
+            <li><a href="https://www.tropipay.com/money-request/8fb55280-93ed-11ec-8f41-f102a709d5af" target="_blank">Donación de 100 euros a través de Tropipay.</a></li>
+          </ul>
+
+          <h3>Criptomonedas.</h3>
+          <p><a href="https://qvapay.com/payme/andaniel05">Donar criptomonedas hacia QvaPay.</a></p>
+        {% else %}
+          <h2>Monetary contribution.</h2>
+
+          <p>The monetary contributions we receive will always be destined to the development of the project.</p>
+          <p>Unfortunately for us, we only have the following options to receive donations because we are based in Cuba and it is not possible for us to use services such as PayPal, Patreon, etc. For these reasons we will doubly appreciate every contribution.</p>
+
+          <h3>Credit Card.</h3>
+          <ul class="list-unstyled">
+            <li><a href="https://www.tropipay.com/money-request/29191f80-93ec-11ec-8f41-f102a709d5af" target="_blank">Donation of 5 euros through Tropipay.</a></li>
+            <li><a href="https://www.tropipay.com/money-request/95facf90-93ec-11ec-8f41-f102a709d5af" target="_blank">Donation of 10 euros through Tropipay.</a></li>
+            <li><a href="https://www.tropipay.com/money-request/ce590c30-93ec-11ec-8f41-f102a709d5af" target="_blank">Donation of 25 euros through Tropipay.</a></li>
+            <li><a href="https://www.tropipay.com/money-request/20959950-93ed-11ec-8f41-f102a709d5af" target="_blank">Donation of 50 euros through Tropipay.</a></li>
+            <li><a href="https://www.tropipay.com/money-request/8fb55280-93ed-11ec-8f41-f102a709d5af" target="_blank">Donation of 100 euros through Tropipay.</a></li>
+          </ul>
+
+          <h3>Cryptocurrencies.</h3>
+          <p><a href="https://qvapay.com/payme/andaniel05">Donate cryptocurrencies towards QvaPay.</a></p>
+        {% endif %}
       </div>
     </div>
   </div>

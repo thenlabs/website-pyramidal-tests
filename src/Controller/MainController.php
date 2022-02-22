@@ -148,11 +148,11 @@ class MainController extends AbstractController
         ]);
     }
 
-    // /**
-    //  * @Route("/contribute", name="contribute")
-    //  */
-    // public function contribute(): Response
-    // {
-    //     return $this->render('page-contribute.html.twig');
-    // }
+    /**
+     * @Route("/contribute", name="contribute")
+     */
+    public function contribute(): Response
+    {
+        return $this->render('page-contribute.html.twig');
+    }
 }
